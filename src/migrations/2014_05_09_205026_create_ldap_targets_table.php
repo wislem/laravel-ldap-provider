@@ -60,6 +60,9 @@ class CreateLdapTargetsTable extends Migration {
 			$table->string('attr_email', 64);
 			$table->string('attr_firstname', 32);
 			$table->string('attr_lastname', 32);
+
+			// Metadata
+			$table->text('metadata');
 		});
 	}
 

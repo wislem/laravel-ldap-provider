@@ -28,7 +28,7 @@ class CreateLdapTargetsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::cretae('ldap_targets', function($table){
+		Schema::create('ldap_targets', function($table){
 			$table->engine = 'InnoDB';
 
 			$table->increments('id');

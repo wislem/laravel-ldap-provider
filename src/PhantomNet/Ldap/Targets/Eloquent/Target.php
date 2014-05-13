@@ -75,6 +75,10 @@ class Target extends Model implements TargetInterface
 		return array();
 	}
 
+	/** 
+	 * Define the one-to-many relationship between the target and
+	 * the users it manages
+	 */
 	public function users()
 	{
 		return $this->hasMany(static::$userModel, 'source_id', 'id');

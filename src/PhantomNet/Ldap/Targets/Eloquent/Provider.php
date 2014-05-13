@@ -47,7 +47,7 @@ class Provider implements ProviderInterface
 	 * @param  array $attributes
 	 * @return Phantomnet\Ldap\Targets\TargetInterface
 	 */
-	public function create($credentials, $attributes)
+	public function create($credentials, $attributes = array())
 	{
 		$target = $this->createModel();
 

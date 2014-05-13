@@ -17,7 +17,7 @@ class CreateLdapUsersTable extends Migration {
 			// We create the new coulmn to be used
 			$table->integer('source_id')
 				->unsigned()
-				->default($target->id)
+				->default('1')
 				->index();
 
 			// Add the foreign key reference we need

@@ -1,4 +1,4 @@
-<?php namespace Phantomnet\Ldap;
+<?php namespace Phantomnet\Ldap\Connections;
 /**
  * Copyright (C) 2014  Danny Weiner <info@phantomnet.net>
  *
@@ -17,7 +17,4 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-class Auth
-{
-	// Class is not YET in use
-}
+class LdapConnectionException extends \RuntimeException {}

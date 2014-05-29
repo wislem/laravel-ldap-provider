@@ -1,4 +1,4 @@
-<?php namespace Phantomnet\Ldap;
+<?php namespace Phantomnet\Ldap\Targets;
 /**
  * Copyright (C) 2014  Danny Weiner <info@phantomnet.net>
  *
@@ -17,7 +17,30 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-class Auth
+interface ProviderInterface 
 {
-	// Class is not YET in use
+	/**
+	 * Creates a new LDAP Target with the given credentials 
+	 * and attributes
+	 *
+	 * @param array $credentials
+	 * @param array $attributes
+	 * @return \Phantomnet\Ldap\Targets\TargetInterface
+	 */
+	public function create($credentials, $attributes);
+
+	/**
+	 * Create a new instance of the model.
+	 *
+	 * @return Illuminate\Database\Eloquent\Model
+	 */
+	public function createModel();
+
+	/**
+	 * Sets a new model class name to be used at
+	 * runtime.
+	 *
+	 * @param  string  $model
+	 */
+	public function setModel($model);
 }

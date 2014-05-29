@@ -1,4 +1,4 @@
-<?php namespace Phantomnet\Ldap;
+<?php namespace Phantomnet\Ldap\Bridge;
 /**
  * Copyright (C) 2014  Danny Weiner <info@phantomnet.net>
  *
@@ -16,8 +16,3 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
-class Auth
-{
-	// Class is not YET in use
-}

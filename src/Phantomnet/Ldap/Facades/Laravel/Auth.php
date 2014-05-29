@@ -1,4 +1,4 @@
-<?php namespace Phantomnet\Ldap;
+<?php namespace Phantomnet\Ldap\Facades\Laravel;
 /**
  * Copyright (C) 2014  Danny Weiner <info@phantomnet.net>
  *
@@ -17,7 +17,17 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-class Auth
+use Illuminate\Support\Facades\Facade;
+
+class Auth extends Facade 
 {
-	// Class is not YET in use
+	/**
+	 * Get the registered name of the component.
+	 *
+	 * @return string
+	 */
+	protected static function getFacadeAccessor()
+	{
+		return 'auth';
+	}
 }

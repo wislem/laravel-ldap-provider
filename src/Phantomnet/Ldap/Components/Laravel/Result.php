@@ -1,4 +1,4 @@
-<?php namespace Phantomnet\Ldap;
+<?php namespace Phantomnet\Ldap\Components\Laravel;
 /**
  * Copyright (C) 2014  Danny Weiner <info@phantomnet.net>
  *
@@ -17,7 +17,28 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-class Auth
+use Phantomnet\Ldap\Components\ResultInterface;
+
+class Result implements ResultInterface
 {
-	// Class is not YET in use
+	/**
+	 * List of attributes that this result has available
+	 */
+	protected $attributes = array();
+
+	/** 
+	 * LDAP Connection that generated this result set
+	 */
+	protected $connection;
+
+	/** 
+	 * Creates a new LDAP data result
+	 *
+	 * @var $attributes array
+	 * @return void
+	 */
+	public function __construct(array $attributes = array())
+	{
+
+	}
 }

@@ -263,7 +263,7 @@ class Connection implements ConnectionInterface
     {
         if ($this->ldapConnection) 
         {
-            @ldap_close($this->ldapConnection);
+            \@ldap_close($this->ldapConnection);
         }
     }
 
@@ -283,7 +283,7 @@ class Connection implements ConnectionInterface
         $hostname = $this->toString();
 
         // Initiate a connection to the server
-        $this->ldapConnection = ldap_connect($hostname, $this->port);
+        $this->ldapConnection = @ldap_connect($hostname, $this->port);
 
         if (!$this->ldapConnection)
         {
@@ -385,7 +385,9 @@ class Connection implements ConnectionInterface
      * Search for users within the directory with the given 
      * attribute.
      *
-     * @param 
+     * @param $filter string
+     * @param $attributes array
+     * @return bool|mixed
      */
     public function search($filter, $attributes = array())
     {
@@ -394,18 +396,20 @@ class Connection implements ConnectionInterface
 
         if (!$result)
         {
-            echo '<pre>';
+            // echo '<pre>';
 
-            var_dump($this->ping());
+            // var_dump($this->ping());
 
-            var_dump($this);
+            // var_dump($this);
 
             $errno  = @ldap_errno($this->ldapConnection);
             $errstr = @ldap_err2str($errno);
 
-            var_dump($errno, $errstr);
+            return false;
 
-            die('</pre>');
+            // var_dump($errno, $errstr);
+
+            // die('</pre>');
         }
         
 
@@ -416,11 +420,25 @@ class Connection implements ConnectionInterface
         return $entries;
     }
 
+    /**
+     * Set the attribute prefix to be used in creating the LDAP
+     * attributes on the fly target server.
+     *
+     * @param $prefix string
+     * @return void
+     */
     public static function setAttributePrefix($prefix)
     {
     	static::$attribute_prefix = $prefix;
     }
 
+    /**
+     * Set the attribute to be used for logging in to the LDAP
+     * target server.
+     *
+     * @param $prefix string
+     * @return void
+     */
     public static function setLoginAttribute($attribute)
     {
     	static::$loginAttribute = $attribute;

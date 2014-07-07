@@ -263,7 +263,7 @@ class Connection implements ConnectionInterface
     {
         if ($this->ldapConnection) 
         {
-            \@ldap_close($this->ldapConnection);
+            \ldap_close($this->ldapConnection);
         }
     }
 
